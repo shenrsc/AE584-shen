@@ -1,0 +1,6 @@
+function dydt = vdp1(t,y)
+dydt = [cos(2*t)*(1+sin(y(1))*tan(y(2)))+cos(y(1))*tan(y(2))*0.025*t;...
+    cos(2*t)*cos(y(1))-sin(y(1))*0.025*t;...
+    cos(2*t)*sin(y(1))*sec(y(2))+0.025*t*cos(y(1))*sec(y(2))];
+end
+
