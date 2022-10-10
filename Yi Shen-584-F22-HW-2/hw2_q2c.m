@@ -10,8 +10,8 @@ options = optimoptions('fminunc','OptimalityTolerance',10e-11);
 [x1,fval] = fminunc(fun,x0,options);
 x0_2=[0,10];
 [x2,fval2]=fminunc(fun,x0_2,options);
-p = -5:2.5:10;
-q=10:-2.5:-5;
+p = -5:0.5:10;
+q=10:-0.5:-5;
 
 up_one = [];
 down_one = [];
@@ -38,4 +38,4 @@ scatter(local_opt(:,1),local_opt(:,2),[],'g');
 xlabel('x-axis')
 ylabel('y-axis')
 axis equal
-legend('points y>x','points x>y','points local opt');
+legend('convert to up','convert to down','points local opt');

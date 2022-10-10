@@ -1,0 +1,39 @@
+clc;
+clear all;
+global h;
+h.x=[];
+h.fval=[];
+L1 = [0,0];
+L2 = [5,5];
+R1=2.5;
+R2=5;
+fun = @(x) fun_2a(x,L1,L2,R1,R2);
+x0 = [10,0];
+options = optimoptions('fminunc','OptimalityTolerance',10e-1,'OutputFcn',@outfun);
+[x1,fval] = fminunc(fun,x0,options);
+x0_2=[0,10];
+%[x2,fval2]=fminunc(fun,x0_2,options);
+
+figure(1)
+iter = 1:length(h.x);
+xxx = h.x-x1;
+semilogy(iter,abs(xxx(:,1)),'b','linewidth',1);
+hold all
+semilogy(iter,abs(xxx(:,2)),'g','linewidth',1);
+xlim([min(iter),max(iter)]);
+xticks(1:2:max(iter));
+xlabel('iternation');
+ylabel('logarithmic error');
+legend('error of x','error of y');
+grid on;
+
+function stop = outfun(x,optimValues,state)
+    global h;
+    stop = false;
+    switch state
+        case 'iter'
+            h.fval = [h.fval; optimValues.fval];
+            h.x=[h.x;x];
+        otherwise
+    end
+end
