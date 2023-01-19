@@ -1,0 +1,5 @@
+interepret in a:
+
+the higher the plot deviates from the 0, the greater the miss distance if the target maneuvers at that moment. Generally, when time-to-go goes large(tf goes small), the miss distance shrinks to 0 from infinite, then go large to a modest scale, finally do down to 0 gradually.
+
+check yE,1 first

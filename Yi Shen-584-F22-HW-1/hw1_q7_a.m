@@ -1,7 +1,7 @@
 clc;
 clear all;
 time = 0:0.01:10;
-[t,y] = ode45(@vdp1,time,[0;0;0]);
+[t,y] = ode45(@vdp2,time,[0;0;0]);
 %y(1) = phi, y(2) = theta, y(3) = psi
 w = [cos(2*t),cos(2*t),0.025*t];
 
